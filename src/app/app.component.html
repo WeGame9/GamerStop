@@ -1,2 +1,50 @@
-<h1>code here!</h1>
-<p>hi</p>
+
+<nav class="navbar navbar-expand-lg navbar-light shadow " style="width:100%;background-color:#1a274b;">
+    <div class="container-fluid mx-2" >
+         <div>
+        <img src="../assets/logo11.PNG" width="55px"> 
+        <a class="navbar-brand text-light mr-5" href="#" style="font-family: 'Atma', cursive;">   GAMERSTOP</a>
+        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 1rem; margin-right: 0rem; justify-content:start">
+        <ul class="navbar-nav me-auto  mb-lg-0 m-0 my-sm-0 mt-3 md-2">
+            <!--Home -->
+          <li class="nav-item ">
+            <a class="nav-link" aria-current="page" routerLink="home" routerLinkActive="active" >Home</a>
+          </li>
+          <!--OurGames-->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" routerLink="#" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            style="color:#b1b3b8">
+              Ourgames</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#1a274b;">
+              <li><a class="dropdown-item " routerLink="free" routerLinkActive="active" >Free</a></li>
+              <li><a class="dropdown-item" routerLink="buy" routerLinkActive="active" >Buy</a></li>
+            </ul>
+          </li>
+          <!--Top2021-->
+          <li class="nav-item">
+            <a class="nav-link " routerLink="top2021" routerLinkActive="active"  >Top 2021</a>
+          </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!--Search-->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="search" routerLinkActive="active" >
+                <i class="fas fa-search mr-1"></i>
+                <span class="ml-1" style="color: #b1b3b8;" routerLinkActive="active"> Search</span>
+            </a>
+          </li>
+          <!--login-->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" routerLinkActive="active" >Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <router-outlet></router-outlet>
