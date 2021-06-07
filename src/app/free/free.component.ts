@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FreeService } from '../free.service';
 
 @Component({
@@ -9,16 +10,27 @@ import { FreeService } from '../free.service';
 })
 export class FreeComponent implements OnInit {
 
-  gameslist:any;
+  p=1;
+  gameslist:any=[];
   constructor(private fSerObj:FreeService,private router:Router) { }
-
+   mySubscription:Subscription;
   ngOnInit(): void {
-           this.fSerObj.getFreeGamesData().subscribe(res=>{
+    this.mySubscription=this.fSerObj.getFreeGamesData().subscribe(res=>{
              console.log("hi",res);
-            // this.gameslist=res;
+             for(let v of res)
+              {
+                this.gameslist.unshift(v);
+              }
+            //this.gameslist=res;
            },err=>{
              console.log("err is ",err)
            });
+
+          // console.log("WOW",this.gameslist)
+           //console.log("VERY GOOD GIRL")
   }
+ ngOnDestroy():void {
+    this.mySubscription.unsubscribe();
+}
 
 }

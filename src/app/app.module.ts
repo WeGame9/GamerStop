@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import{NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { BuyComponent } from './buy/buy.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
 
 
 @NgModule({
@@ -20,12 +22,18 @@ import { HomeComponent } from './home/home.component';
     BuyComponent,
     SearchComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    GameDetailsComponent
   ],
+  exports:[NgxPaginationModule],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    /*RouterModule.forRoot(
+      appRoutes
+    )*/
   ],
   providers: [],
   bootstrap: [AppComponent]
