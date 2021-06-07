@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"search",component:SearchComponent},
   {path:"login",component:LoginComponent},
   {path:"game-details/:id",component:GameDetailsComponent},
+  {path:'game-details1/:id',component:GameDetails1Component}
 ];
 
 @NgModule({
