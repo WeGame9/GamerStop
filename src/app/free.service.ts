@@ -13,7 +13,7 @@ export class FreeService  {
     {
       const headers = {
       	"x-rapidapi-key": "2ff7a0eaa0mshaee6f7187507ddfp1d2804jsn05f309075f92",
-	"x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
 
       };
       const params = {
