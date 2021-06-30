@@ -1,0 +1,99 @@
+<p>game-details2 works!</p>
+<div >
+    <div class="first d-flex d-sm-block mx-sm-1 mx-lg-auto px-sm-0 px-lg-5 m-3" >
+    <div class="container mt-sm-3 mt-lg-5 mx-sm-0 mx-lg-5 pb-4" style="width:100%;justify-content:space-between;margin-top: 10px;background-color:#404a6f;">
+       
+        <div class="col ">
+        <div class="row row-cols-1 row-cols-md-2 mx-auto" >
+            <div class="col mt-lg-3 mt-sm-2 mb-2">
+                <img src="{{gameObj.thumbnail}}" width="98%" alt="">
+            </div>
+            <div class="second col mt-lg-3 mt-sm-2 my-2 px-lg-5 px-sm-0 text-center" width="98%" style="background-color:#6f7a98;">
+                <h3 class="d-block mx-auto text-white">{{gameObj.title}}</h3>
+               <!-- <p class="d-block mx-auto" style="color:#dae0e3;">{{gameObj.short_description}}</p> -->
+                <div class="row row-cols-1 mx-auto">
+                <div class=" col btn btn-info d-block mx-auto text-white mb-2" style="border-radius: 30px;font-weight:600;width:120px;">
+                    <a class="text-white"href="{{gameObj.game_url}}" style="text-decoration: none;font-size: 1.1em;font-weight: 700;">Buy now</a>
+                </div>
+                <div class="col btn mx-auto btn-outline-secondary text-white mb-2" style="border-radius: 3px;border:1px white solid;font-weight:600;">
+                <a class="text-white"href="{{gameObj.game_url}}" style="text-decoration: none;font-size: 1.1em;">Add to Wishlist</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row my-2 mx-2 mx-sm-1 p-lg-3 p-sm-1" >
+           <h3 class="text-white" >About {{gameObj.title}}</h3>
+           <p style="color:#dae0e3;" >{{gameObj.description}}</p>
+           <h5 class="text-white">Instructions :</h5>
+           <p style="color:#dae0e3;" *ngFor="let i of instru;let in=index">{{in+1}} ) {{i}}</p>
+          <!-- <a class="collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary">+read More</a>    class="collapse" id="collapseSummary">-->
+          <h5 class="text-white">Worth</h5>
+          <p style="color:#dae0e3;">{{gameObj.worth}}</p>
+          <h5 class="text-white">Type</h5>
+           <p style="color:#dae0e3;">{{gameObj.type}}</p>
+            <h5 class="text-white">End-date</h5>
+            <p style="color:#dae0e3;">{{gameObj.end_date}}</p>  
+           <h5 class="text-white">Number Of users:</h5>
+           <p style="color:#dae0e3;">{{gameObj.users}}</p>
+           <h5 class="text-white">Status</h5>
+           <p style="color:#dae0e3;">{{gameObj.status}}</p>
+           <h5 class="text-white">Platforms :</h5>
+           <div>
+            <h6 *ngIf="h.includes('PC')" style="padding-left: 5px;color: #b1b3b8;"><i class="fas fa-desktop"></i> PC</h6>
+            <h6 *ngIf="h.includes(' Steam')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-steam-symbol"></i> Steam </h6>
+ 
+            <h6 *ngIf="h.includes(' VR')" style="padding-left: 5px;color: #b1b3b8;"><i class="fas fa-vr-cardboard"></i> VR</h6>
+            <h6 *ngIf="h.includes(' Android')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-android"></i> Android</h6>
+
+             <h6 *ngIf="h.includes(' Itch.io')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-itch-io"></i> Itch.io</h6>
+             <h6 *ngIf="h.includes(' DRM-Free')" style="padding-left: 5px;color: #b1b3b8;"> DRM-Free</h6>
+             <h6 *ngIf="h.includes(' Epic Games Store')" style="padding-left: 5px;color: #b1b3b8;"> Epic Games Store</h6>
+             <h6 *ngIf="h.includes(' GOG')" style="padding-left: 5px;color: #b1b3b8;"> GOG</h6>
+             <h6 *ngIf="h.includes(' Xbox One')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i> Xbox One</h6>
+             <h6 *ngIf="h.includes(' Xbox Series X|S')" style="padding-left: 5px;color: #b1b3b8;"> Xbox Series X|S"</h6>
+             <h6 *ngIf="h.includes(' Playstation 4')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-playstation"></i> Playstation 4</h6>
+             <h6 *ngIf="h.includes(' Nintendo Switch')" style="padding-left: 5px;color: #b1b3b8;"> Nintendo Switch</h6>
+             <h6 *ngIf="h.includes(' Xbox 360')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i> Xbox 360</h6>
+             <h6 *ngIf="h.includes(' iOS')" style="padding-left: 5px;color: #b1b3b8;"> iOS</h6>
+             <h6 *ngIf="h.includes(' Battle.net')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-battle-net"></i> Battle net</h6>
+             <h6 *ngIf="h.includes(' Origin')" style="padding-left: 5px;color: #b1b3b8;"> Origin</h6>
+
+          <!--<h6 class="mb-3 pb-3"style="color:#dae0e3;">  {{gameObj.platforms}} {{h}}</h6> -->
+           </div>
+          <!-- <h5 *ngIf="gameObj.screenshots.length" class="text-white mt-2">Screenshots</h5>
+           <div  class="row row-cols-1 row-cols-sm-1 row-cols-lg-3 ">
+               <div class="col flex-wrap mt-2 mt-sm-1 p-1" *ngFor="let obj of gameObj.screenshots">
+                   <img src="{{obj['image']}}" alt="" width="100%">
+               </div>
+           </div>
+           <h5 class="text-white mt-4">Minimum System Requirements:</h5>
+           <div class="col">
+                 <div class="row mt-2">
+                     <div class="col-4 col-lg-2 text-white" style="font-size: 1.05em;"> System :</div>
+                     <div class="col-8 col-lg-10 p-0 m-0" style="color:#dae0e3;font-size:1.05em ;">{{gameObj.minimum_system_requirements['os']}}</div>
+                 </div>
+                 <div class="row mt-2">
+                    <div class="col-4 col-lg-2 text-white" style="font-size: 1.05em;"> Processor :</div>
+                    <div class="col-8 col-lg-10 p-0 m-0" style="color:#dae0e3;font-size:1.05em ;">{{gameObj.minimum_system_requirements['processor']}}</div>
+                </div>
+                <div class="row mt-2">
+                    <span class="col-4 col-lg-2 text-white" style="font-size: 1.05em;"> Memory :  </span>
+                    <span class="col-8 col-lg-10 p-0 m-0" style="color:#dae0e3;font-size:1.05em ;">{{gameObj.minimum_system_requirements['memory']}}</span>
+                </div>
+                <div class="row mt-2">
+                    <span class="col-4 col-lg-2 text-white" style="font-size: 1.05em;"> Storage : </span>
+                    <span class="col-8 col-lg-10 p-0 m-0" style="color:#dae0e3;font-size:1.05em ;">{{gameObj.minimum_system_requirements['storage']}}</span>
+                </div>
+                <div class="row mt-2">
+                    <span class="col-4 col-lg-2 text-white" style="font-size: 1.1em;"> Graphics : </span>
+                    <span class="col-8 p-0 m-0" style="color:#dae0e3;font-size:1.0.5em ;">{{gameObj.minimum_system_requirements['graphics']}}</span>
+                </div>
+           </div>-->
+       </div>
+     
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>

@@ -12,6 +12,8 @@ import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
+import { GameDetails2Component } from './game-details2/game-details2.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { GameDetailsComponent } from './game-details/game-details.component';
     SearchComponent,
     LoginComponent,
     HomeComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    GameDetails2Component,
+    FooterComponent
   ],
   exports:[NgxPaginationModule],
   imports: [
