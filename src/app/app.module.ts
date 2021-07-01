@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import{NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { GameDetails2Component } from './game-details2/game-details2.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddComponent } from './add/add.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     GameDetailsComponent,
     GameDetails2Component,
-    FooterComponent
+    FooterComponent,
+    AddComponent
   ],
   exports:[NgxPaginationModule],
   imports: [
@@ -35,6 +38,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule
     /*RouterModule.forRoot(
       appRoutes
     )*/

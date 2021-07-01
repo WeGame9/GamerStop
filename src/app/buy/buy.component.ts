@@ -18,7 +18,12 @@ export class BuyComponent implements OnInit {
              console.log("hi",res);
              for(let v of res)
               {
-                this.gameslist.unshift(v);
+               // this.gameslist.unshift(v);
+
+               if(v.worth!="N/A")
+                {
+                  this.gameslist.push(v);
+                }
               }
             //this.gameslist=res;
            },err=>{

@@ -41,4 +41,9 @@ export class FreeService  {
       );
     }
 
+    addRowItems(data):Observable<any>{
+      console.log("data came to service",data)
+     return this.hc.post("/addHomeRow",data);
+    }
+
 }
