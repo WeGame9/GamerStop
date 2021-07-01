@@ -18,7 +18,7 @@ export class Top2021Component implements OnInit {
   h:any;
   a:string="pc";
   b:string="game";
-  constructor(private tSerObj:Top2021Service,private router:Router) { }
+  constructor(public tSerObj:Top2021Service,private router:Router) { }
    mySubscription:Subscription;
   ngOnInit(): void {
     console.log("initialize",this.tSerObj.a," ",this.tSerObj.b)

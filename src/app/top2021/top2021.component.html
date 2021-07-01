@@ -11,7 +11,8 @@
          <div class="pl-4 col-4" style="background-color:#6f7a98">
             <div class="nav-item dropdown p-0"style="background-color:#6f7a98">
                 <a class="nav-link dropdown-toggle" routerLink="#" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                style="color:white;font-size: 1.2em;">Platform</a>
+                style="color:white;font-size: 1.2em;">Platform
+            <span style="color:rgb(36, 252, 252)"> : {{tSerObj.a}}</span></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#6f7a98">
                   <li><button *ngFor="let type of platformTypes" (click)="getdataA(type)" class="dropdown-item text-light">{{type}}</button></li>
                 </ul>
@@ -20,7 +21,9 @@
          <div class="col-3" style="background-color:#6f7a98">
             <div class="nav-item dropdown p-0"style="background-color:#6f7a98">
                 <a class="nav-link dropdown-toggle" routerLink="#" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                style="color:white;font-size: 1.2em;">Type</a>
+                style="color:white;font-size: 1.2em;">Type
+            
+                <span style="color:rgb(36, 252, 205)"> : {{tSerObj.b}}</span></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#6f7a98">
                   <li><button *ngFor="let type of typeTypes" (click)="getdataB(type)" class="dropdown-item text-light">{{type}}</button></li>
                 </ul>
