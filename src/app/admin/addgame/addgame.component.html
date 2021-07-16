@@ -1,0 +1,66 @@
+
+<div class="px-lg-5 px-sm-1  mx-lg-auto mx-auto my-5 d-block container" style="width: 50%;">
+    <div class="col" style="background-color:#797e87;">
+        <div class="row">
+            <h2 class="text-center text-light mt-4 pt-2">ADD GAME DETAILS</h2>
+            <form #ref="ngForm" (ngSubmit)="ref.form.valid && onAddgame(ref)" class="mx-auto mt-3 register">
+               
+                <div class="form-floating px-1">
+                    <input type="text" class="form-control" id="Id" placeholder="Id" name="id" ngModel required #refi="ngModel" autocomplete="off">
+                    <label for="Id">Id</label>
+                </div>
+                <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refi.touched)&&refi.errors?.required)"></p>
+                <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refi.touched)&&refi.errors?.required">
+                    *Id is required</p>
+
+              <div class="form-floating px-1">
+                  <input type="text" class="form-control" id="title" placeholder="title" name="title" ngModel required #reft="ngModel" autocomplete="off">
+                  <label for="title">Title</label>
+              </div>
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || reft.touched)&&reft.errors?.required)"></p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || reft.touched)&&reft.errors?.required">
+                  *Title is required</p>
+             <!-- <div class="row mb-3 mx-auto"> -->
+                <div class="form-floating px-1">
+                    <input type="text" class="form-control" id="worth" placeholder="Eg - $20.00" name="worth" ngModel required #refw="ngModel" autocomplete="off">
+                    <label for="worth">Worth</label>
+                </div>
+                <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refw.touched)&&refw.errors?.required)"></p>
+                <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refw.touched)&&refw.errors?.required">
+                    *worth is required</p>
+                 
+           <!-- </div>-->
+           <div class="form-floating px-1">
+            <input type="text" class="form-control" id="platfroms" placeholder="Platforms" name="platforms" ngModel required #refp="ngModel" autocomplete="off">
+            <label for="platforms">Platforms</label>
+           </div>
+           <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refp.touched)&&refp.errors?.required)"></p>
+            <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refp.touched)&&refp.errors?.required">
+            *Platform is required</p>
+
+              <div class="form-floating px-1">
+                <textarea type="date" class="form-control" id="dob" placeholder="Email" name="description" ngModel required #refd="ngModel"></textarea>
+                <label for="dob">Description</label>
+              </div> 
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refd.touched)&&refd.errors?.required)"></p>
+              <p class="text-white mb-4 px-1" *ngIf="(ref.submitted || refd.touched)&&refd.errors?.required">
+                  *description is required</p>
+              
+            <div class="px-1">
+              <label  for=""style="color:#efeff0" >Thumbnail Link</label>
+              <input type="file" class="form-control" name="photo" (change)="selectFile($event)" ngModel required #refphoto="ngModel">
+            </div>
+            <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refphoto.touched)&&refphoto.errors?.required)"></p>
+              <p class="text-white mb-4 px-1" *ngIf="(ref.submitted || refphoto.touched)&&refphoto.errors?.required">
+                  *Profile photo is required</p>
+
+                  <div class="parent text-center" style="color: rgba(252, 34, 34, 0.938);">
+
+                  </div>
+
+             <button class="mt-5 btn mx-auto d-block m-4 registerbtn" style="background-color:#d8d9db;" type="submit">ADD</button>
+            </form>
+            
+          </div>
+    </div>
+</div>

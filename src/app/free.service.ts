@@ -42,8 +42,28 @@ export class FreeService  {
     }
 
     addRowItems(data):Observable<any>{
-      console.log("data came to service",data)
+      //console.log("data came to service",data)
+      if(data!=undefined)
      return this.hc.post("/addHomeRow",data);
+    }
+
+    addRecentlyAdded(data):Observable<any>{
+      //console.log("data came to service recently added",data)
+      if(data!=undefined)
+      return this.hc.post("/addRecentlyAdded",data);
+    }
+
+    addFeaturedGames(data):Observable<any>
+    {
+      if(data!=undefined)
+      {
+      return this.hc.post("/addFeaturedGames",data);
+      }
+    }
+
+    addRecommendedGames(data):Observable<any>
+    {
+      return this.hc.post("/addRecommendedGames",data);
     }
 
 }

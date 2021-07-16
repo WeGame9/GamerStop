@@ -1,0 +1,27 @@
+
+
+.container{
+   width: 70%;
+}
+.row1{
+    width:60%;
+}
+.image{
+    height:200px;
+}
+
+ @media screen and (max-width: 760px) {
+
+    .container{
+        width: 90%;
+    }
+    .row1{
+        width: 90%;
+    }
+    image{
+        height: 150px;
+    }
+    .un{
+        font-size: 1.5em!important;
+    }
+ }

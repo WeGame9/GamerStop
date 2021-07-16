@@ -1,4 +1,4 @@
-<p>game-details2 works!</p>
+<p></p>
 <div >
     <div class="first d-flex d-sm-block mx-sm-1 mx-lg-auto px-sm-0 px-lg-5 m-3" >
     <div class="container mt-sm-3 mt-lg-5 mx-sm-0 mx-lg-5 pb-4" style="width:100%;justify-content:space-between;margin-top: 10px;background-color:#404a6f;">
@@ -13,7 +13,7 @@
                <!-- <p class="d-block mx-auto" style="color:#dae0e3;">{{gameObj.short_description}}</p> -->
                 <div class="row row-cols-1 mx-auto">
                 <div class=" col btn btn-info d-block mx-auto text-white mb-2" style="border-radius: 30px;font-weight:600;width:120px;">
-                    <a class="text-white"href="{{gameObj.game_url}}" style="text-decoration: none;font-size: 1.1em;font-weight: 700;">Buy now</a>
+                    <a class="text-white"  data-bs-target="#mdl" data-bs-toggle="modal" style="text-decoration: none;font-size: 1.1em;font-weight: 700;">Buy now</a>
                 </div>
                 <div class="col btn mx-auto btn-outline-secondary text-white mb-2" style="border-radius: 3px;border:1px white solid;font-weight:600;">
                 <a class="text-white"href="{{gameObj.game_url}}" style="text-decoration: none;font-size: 1.1em;">Add to Wishlist</a>
@@ -24,20 +24,20 @@
         <div class="row my-2 mx-2 mx-sm-1 p-lg-3 p-sm-1" >
            <h3 class="text-white" >About {{gameObj.title}}</h3>
            <p style="color:#dae0e3;" >{{gameObj.description}}</p>
-           <h5 class="text-white">Instructions :</h5>
+           <h4 class="text-white">Instructions :</h4>
            <p style="color:#dae0e3;" *ngFor="let i of instru;let in=index">{{in+1}} ) {{i}}.</p>
           <!-- <a class="collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary">+read More</a>    class="collapse" id="collapseSummary">-->
-          <h5 class="text-white">Worth</h5>
+          <h4 class="text-white">Worth</h4>
           <p style="color:#dae0e3;">{{gameObj.worth}}</p>
-          <h5 class="text-white">Type</h5>
+          <h4 class="text-white">Type</h4>
            <p style="color:#dae0e3;">{{gameObj.type}}</p>
-            <h5 class="text-white">End-date</h5>
+            <h4 class="text-white">End-date</h4>
             <p style="color:#dae0e3;">{{gameObj.end_date}}</p>  
-           <h5 class="text-white">Number Of users:</h5>
+           <h4 class="text-white">Number Of users:</h4>
            <p style="color:#dae0e3;">{{gameObj.users}}</p>
-           <h5 class="text-white">Status</h5>
+           <h4 class="text-white">Status</h4>
            <p style="color:#dae0e3;">{{gameObj.status}}</p>
-           <h5 class="text-white">Platforms :</h5>
+           <h4 class="text-white">Platforms :</h4>
            <div>
             <h6 *ngIf="h.includes('PC')" style="padding-left: 5px;color: #b1b3b8;"><i class="fas fa-desktop"></i> PC</h6>
             <h6 *ngIf="h.includes(' Steam')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-steam-symbol"></i> Steam </h6>
@@ -97,3 +97,66 @@
     </div>
     </div>
     </div>
+
+    <div class="modal" data-bs-backdrop="static" id="mdl">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>PAYMENT DETAILS</h5>
+                    <button class="btn btn-danger float-end" data-bs-dismiss="modal">x</button>
+                </div>
+                <div class="row">
+                <div class="col-6 pt-4" style="align-items: center;"> 
+                
+                <div class="container" >
+                    <h2 class="mb-4">Payment Options</h2>
+                <div class="form-check my-2">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Credit / Debit / ATM card
+                    </label>
+                  </div>
+                  <div class="form-check my-2">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                       Pay Pal
+                    </label>
+                  </div>
+                  <div class="form-check my-2">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                      PhonePay
+                    </label>
+                  </div>
+                  <div class="form-check my-2">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                    <label class="form-check-label" for="flexRadioDefault4">
+                      Net Banking
+                    </label>
+                  </div>
+                
+                </div>
+
+
+                </div> 
+                <div class="col-6" style="padding:1em 1em 2em 1em">
+                    <img class="my-3"src="{{gameObj.thumbnail}}" width="98%" alt="">
+                    <em>
+
+                    <p style="font-size:1.5em">TITLE : <strong style="font-size: 1em;">{{gameObj.title}}</strong><br></p>
+                    <p style="font-size:1.2em">LIST PRICE : <strong style="text-decoration:line-through;">{{gameObj.worth}}</strong><br></p>
+                    <p style="font-size:1.2em">DISCOUNT : <strong>${{discount}}</strong><br></p>
+                    <p style="font-size:1.2em">PRICE : <strong>${{total}}</strong><br></p>
+                    <hr>
+                    <p style="font-size:1.2em">TOTAL : <strong>${{total}}</strong><br></p>
+                  </em>
+                </div>
+              </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">BUY NOW</button>
+                </div>
+            
+        </div>
+    </div>
+
+</div>
