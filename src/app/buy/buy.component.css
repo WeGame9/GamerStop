@@ -1,0 +1,26 @@
+.addtocart:hover{
+  background-color:#e2e4ea!important;
+}
+.addtocart:focus{
+    background-color:#e2e4ea!important;
+    /*background: url("javascript"="addtocart()");*/
+  }
+  .addtocart:active{
+    background-color: whitesmoke!important; 
+  }
+  .blink:checked{
+    animation: blink 1s steps(1, end) 0;
+   
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

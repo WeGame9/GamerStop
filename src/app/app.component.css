@@ -42,6 +42,10 @@
     font-size: 1em;
     color:#b1b3b8;
 }
+/*router-outlet{
+    position: relative;
+    top: 1000px !important;;
+}*/
 
 button:focus {
     text-decoration: none;
@@ -58,7 +62,7 @@ button:focus {
 .dropdown-item:focus,.dropdown-item:active,.dropdown-item:target,.dropdown-item:hover{
     background: #f0eae531;
 }
-/*
+
 .nav-link:hover, .nav-link:focus{
      font-size: 1.027em!important;
      color: white;
@@ -77,9 +81,25 @@ button:focus {
 }
 
 .active.nav-link{
-    color: white !important;
+    color:white !important;
     background-color:#f1eded1f;
-   /* background-color: bisque;
-    box-shadow: 3px 3px 3px #d81b60;*/
+   /* background-color: #b1b3b8 ;*/
+}
+.active span{
+    color: white!important;
+}
+.nav-item a:focus
+{
+   color: white !important;
+   font-size: 1.027em!important;
+    background-color: #f1eded1f;
+}
+
+.hover_drop_down.input-group-btn ul.dropdown-menu{margin-top: 0px;}   /*To avoid unwanted close*/
+.hover_drop_down.btn-group ul.dropdown-menu{margin-top:2px;} /*To avoid unwanted close*/
+.hover_drop_down:hover ul.dropdown-menu{
+   display: block;
+}
+
 
 

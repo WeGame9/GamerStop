@@ -1,1 +1,87 @@
-<p>search works!</p>
+
+
+
+<div class="container mt-sm-1 mt-lg-3 mb-lg-5" style="justify-content: space-around;">
+  
+  <div class="row mx-lg-5 px-lg-5 mx-0 p-1 d-flex my-lg-2 mt-lg-5 mt-3 my-5">
+    <span style="float: left; width:60px;display: inline;" class="span"><i class="fas fa-search fa-3x" style="color:#c8c9cd" ></i></span>
+    <span class="input1"><input type="text" name="gamename"  placeholder="search by name" class="form-control" [(ngModel)]=searchTerm> </span>
+  </div>
+
+
+<div class="row row-cols-md-3 row-cols-1 row-cols-xs-1 mx-lg-5 px-lg-4 m-0 p-1">
+    <!-- <div class="col text-white" *ngFor="let game of gameslist">{{game.title}}</div>-->
+ 
+    <div class="col gy-4 gy-lg-5 gx-lg-5 gx-0" *ngFor="let game of gameslist |search : searchTerm | paginate :{ itemsPerPage:12 , currentPage:p } ; let in=index" >
+<!--[routerLink]="['/game-details/'+in]" -->
+<a class="sample"   [routerLink]="['/game-details2/'+game.id]" style="text-decoration: none;">
+     <div class="card shadow"  style="background-color:#2a3347;width: 100% !important;" >
+      <div class="fakeimg">
+         <img width="100%" height="100%" src="{{game.thumbnail}}" alt="">
+     </div>
+         <div class="card-body">
+             <div class="row px-2">
+             <div class="px-1 col-10" style="color:#b1b3b8;font-size:1.02em;font-weight: 600;overflow: hidden;
+             text-overflow: ellipsis;white-space: nowrap;">{{game.title}}</div>
+             <span class="col-2 badge bg-primary " style="float:right">{{game.worth}}</span>
+         </div>
+             <div class="card-text py-2 px-1 text-muted" style="overflow: hidden;
+             text-overflow: ellipsis;    white-space: nowrap;">{{game.description}}</div>
+             <div class="d-flex justify-content-between align-items-center" *ngIf="App.check">
+              <div class="py-1 px-1 pt-3 p-0" style="position: relative;">
+                <a class="blink btn stretched-link addtocart px-2 py-0" aria-expanded="false"
+              style="color:#2a3347;background-color:#c5c9d5;font-weight: 500;" (click)="addtocart(game)"><i class="fas fa-plus-square"></i> Add to cart</a>
+            </div>
+              <div class="py-2 px-1 pt-3" style="float: right!important;">
+              <span *ngIf="game.platforms.split(',').includes('PC')" style="padding-left: 5px;color: #b1b3b8;"><i class="fas fa-desktop"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Steam')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-steam-symbol"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Android')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-android"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Itch.io')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-itch-io"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Xbox One')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Playstation 4')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-playstation"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Xbox 360')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i></span>
+              <span *ngIf="game.platforms.split(',').includes(' Battle.net')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-battle-net"></i></span>
+
+             </div>
+            </div>
+          </div>
+     </div>
+
+ <!-- <div class="card shadow"  style="background-color:#2a3347;width: 100% !important;" >
+      <div class="test row p-lg-0 px-2 mx-lg-0  mx-sm-auto">
+       <div class="col-lg-4 col-12 p-2">
+         <img width="100%" height="100%" src="{{game.thumbnail}}" alt="">
+      </div>
+   <div class="col-lg-8 col-12  px-lg-3 p-2" style="align-content:space-evenly!important;">
+           <div class="row px-3 py-1" style="justify-content: space-between;">
+              <div class="px-1 col-9 title">{{((p-1)*10)+in+1}} . {{game.title}}</div>
+          <span class="col-lg-2 col-2 badge bg-secondary worth" >{{game.worth}}</span>
+          </div>
+  <div class="row px-lg-2 p-2">
+      <div class="text py-lg-2 py-0 px-2 text-muted description">{{game.description}}</div>
+  </div>
+  <div class="row p-lg-2 p-1" style="justify-content: space-between;">
+      <div class="col col-4 text-light"><i class="fas fa-users"></i> {{game.users}}</div>
+      <div class="col-lg-2 col-4" style="color: aliceblue;">{{game.status}}</div>
+      <div class="col-lg-2 col-3" style="float: right;">
+          <span *ngIf="platform[in].includes('PC')" style="padding-left: 5px;color: #b1b3b8;"><i class="fas fa-desktop"></i></span>
+          <span *ngIf="platform[in].includes(' Steam')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-steam-symbol"></i></span>
+          <span *ngIf="platform[in].includes(' Android')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-android"></i></span>
+          <span *ngIf="platform[in].includes(' Itch.io')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-itch-io"></i></span>
+          <span *ngIf="platform[in].includes(' Xbox One')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i></span>
+          <span *ngIf="platform[in].includes(' Playstation 4')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-playstation"></i></span>
+          <span *ngIf="platform[in].includes(' Xbox 360')" style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-xbox"></i></span>
+          <span *ngIf="platform[in].includes(' Battle.net')"  style="padding-left: 5px;color: #b1b3b8;"><i class="fab fa-battle-net"></i></span>
+
+      </div>
+</div>
+</div>
+</div>
+</div>  -->
+ </a>
+  </div>
+ </div>
+ </div>
+ <div class="text-center my-4 mb-5 px-0 mx-0" style="color:white;">
+    <pagination-controls class="m-0 p-0" (pageChange)="p=$event" ></pagination-controls>
+    </div>

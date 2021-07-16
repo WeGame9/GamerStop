@@ -15,13 +15,13 @@ export class GameDetailsComponent implements OnInit {
   ngOnInit(): void {
     let id=this.ar.snapshot.params.id;
     //console.log("id"+id);
-    console.log(id)
+    //console.log(id)
 
     this.mySubscription=this.fs.getGameById(id).subscribe(
       obj=>{
         console.log("obj is ",obj)
         this.gameObj=obj;
-        console.log(this.gameObj.screenshots)
+        //console.log(this.gameObj.screenshots)
       },
       err=>{
         console.log("err in reading post",err)

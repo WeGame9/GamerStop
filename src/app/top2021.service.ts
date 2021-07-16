@@ -57,6 +57,7 @@ export class Top2021Service {
 
 
   getGameById(id:any):Observable<any>{
+    //console.log("i came here with id:happy ",id);
     const headers = {
       "x-rapidapi-key": "2ff7a0eaa0mshaee6f7187507ddfp1d2804jsn05f309075f92",
       "x-rapidapi-host": "gamerpower.p.rapidapi.com",

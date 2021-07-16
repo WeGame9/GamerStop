@@ -16,6 +16,9 @@ export class GameDetails2Component implements OnInit {
   h:any=[];
   a="PC";
  gameObj:any={};
+ worth;
+ total;
+ discount;
  mySubscription:Subscription;
   ngOnInit(): void {
     let id=this.ar.snapshot.params.id;
@@ -24,20 +27,35 @@ export class GameDetails2Component implements OnInit {
 
     this.mySubscription=this.ts.getGameById(id).subscribe(
       obj=>{
-        console.log("obj is ",obj)
+        //console.log("obj is ",obj)
         this.gameObj=obj;
-        console.log(this.gameObj.screenshots)
+        //console.log(this.gameObj.screenshots)
         this.instru=this.gameObj.instructions.split('.');
-        console.log("array "+typeof this.instru);
-        console.log(this.instru[1])
+        //console.log("array "+typeof this.instru);
+        //console.log(this.instru[1])
         for (let i = 0; i < this.instru.length; i++) {
           if(this.instru[i].length<=3)
              this.instru.splice(i,1);
         }
         this.h=obj.platforms.split(',');
-        console.log(typeof this.h,this.h);
+        //console.log(typeof this.h,this.h);
         //console.log(this.h.indexOf(" Steam"))
-        console.log("😎😍🥰😘");
+        console.log("😎");
+        let cost:[]=this.gameObj.worth.split('$')
+        //console.log(cost)
+        
+        for(let v of cost)
+        {
+          this.worth= parseFloat(v)
+        }
+        //console.log(this.worth)
+        this.discount=this.worth*0.10
+        this.total=this.worth-this.discount
+        //let worth = parseFloat())
+       // console.log("WORTH",worth)
+        //var str = this.gameObj.worth;
+          //  var matches = str.match(/(\d+)/);
+            //console.log(matches,"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
       },
       err=>{
         console.log("err in reading post",err)

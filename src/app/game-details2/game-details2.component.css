@@ -8,7 +8,9 @@
     align-content: center;
 }
 
-
+.form-check{
+    font-size: 1.5em;
+}
 
 #summary p.collapse:not(.show) {
     height: 175px !important;
@@ -17,7 +19,12 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-
+p{
+    font-size: 1.18em;
+}
+h6{
+    font-size: 1.18em;
+}
 
 @media screen and (min-width: 150px) and (max-width: 576px)
 {
@@ -38,5 +45,8 @@
     {
         font-size: 1.2rem;
         font-weight: 500;
+    }
+    p{
+     font-size: 1.1em;
     }
 }

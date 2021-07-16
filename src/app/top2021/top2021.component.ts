@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AddtocartService } from '../addtocart.service';
+import { AppComponent } from '../app.component';
 import { Top2021Service } from '../top2021.service';
 
 @Component({
@@ -18,12 +20,13 @@ export class Top2021Component implements OnInit {
   h:any;
   a:string="pc";
   b:string="game";
-  constructor(public tSerObj:Top2021Service,private router:Router) { }
+  constructor(public tSerObj:Top2021Service,private router:Router,public App:AppComponent,private As:AddtocartService) { }
    mySubscription:Subscription;
   ngOnInit(): void {
-    console.log("initialize",this.tSerObj.a," ",this.tSerObj.b)
+      this.App.a='null';
+    //console.log("initialize",this.tSerObj.a," ",this.tSerObj.b)
     this.mySubscription=this.tSerObj.getTop2021GamesData(this.tSerObj.a,this.tSerObj.b).subscribe(res=>{
-             console.log("hi",res);
+            // console.log("hi",res);
              for(let v of res)
               {
                /* if(v.worth!="N/A")
@@ -61,7 +64,7 @@ export class Top2021Component implements OnInit {
      {
        this.gameslist.push(v);
        this.h=v.platforms.split(',');
-       console.log(this.h)
+       //console.log(this.h)
        this.platform.push(this.h);
      }
     //console.log("fhsdj",this.gameslist)
@@ -82,7 +85,7 @@ export class Top2021Component implements OnInit {
      {
        this.gameslist.push(v);
        this.h=v.platforms.split(',');
-       console.log(this.h)
+       //console.log(this.h)
        this.platform.push(this.h);
      }
   },err=>{
@@ -90,4 +93,20 @@ export class Top2021Component implements OnInit {
   });
  }
  
+
+ addtocart(games)
+ {
+   //console.log("On ADD TO CART")
+   let username=localStorage.getItem("username");
+     let newuserObj={username,games}
+     this.As.addGameToCart(newuserObj).subscribe(res=>{
+       alert(res.message)
+       this.App.count=this.App.count+1;
+       
+     },
+     err=>{
+       console.log("some thin error in adding the cart obj")
+     })
+ }
+
 }

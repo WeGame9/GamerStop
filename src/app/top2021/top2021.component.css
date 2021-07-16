@@ -1,0 +1,75 @@
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
+ .test1
+ {
+    flex-wrap: wrap;
+    align-content:space-evenly!important;
+    justify-content: space-evenly;
+ }
+.title{
+    color:#b1b3b8;
+    font-size:1.5em;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.worth{
+    font-size: 1.2em;
+    float:right;
+    margin-top:6px;
+    margin-right: 6px;
+}
+.description{
+    font-size: 1.1em;
+}
+ @media screen and (max-width: 760px) {
+    .text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+     } 
+     .title
+     {
+         font-size: 1.1em;
+     }
+     .worth
+     {
+        font-size: 0.9em;
+     }
+     .description
+     {
+         font-size: 0.9em;
+     }
+ }
+ .addtocart:hover{
+    background-color:#e2e4ea!important;
+  }
+  .addtocart:focus{
+      background-color:#e2e4ea!important;
+    }
+    .addtocart:active{
+      background-color: whitesmoke!important; 
+    }
+    .blink:focus{
+      animation: blink 1s steps(1, end) 1;
+    }
+    
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }

@@ -1,5 +1,5 @@
 
-
+<div style="position: relative;">
 <nav class="navbar navbar-expand-lg navbar-light shadow " style="width:100%;background-color:#1a274b;">
     <div class="container-fluid mx-2" >
          <div>
@@ -16,44 +16,103 @@
             <a class="nav-link" aria-current="page" routerLink="home" routerLinkActive="active" >Home</a>
           </li>
           <!--OurGames-->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" routerLink="#" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+        <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" routerLink="{{a}}" routerLinkActive="active"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
             style="color:#b1b3b8">
               Ourgames</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#1a274b;">
-              <li><a class="dropdown-item " routerLink="free" routerLinkActive="active" >Free</a></li>
-              <li><a class="dropdown-item" routerLink="buy" routerLinkActive="active" >Buy</a></li>
+              <li><a class="dropdown-item" routerLink="free" routerLinkActive="active" value="free" (click)="onOurgamesupdate('free')">Free</a></li>
+              <li><a class="dropdown-item" routerLink="buy" routerLinkActive="active" value="buy" (click)="onOurgamesupdate('buy')">Buy</a></li>
             </ul>
           </li>
+          -->  
+       <li class="nav-item"  *ngIf="!acheck">
+            <div class="btn-group hover_drop_down"> 
+              <!--<button type="button" class="btn btn-default" data-toggle="dropdown">check</button>-->
+             <a class="nav-link hover_drop_down dropdown-toggle" id="navbarDropdown" routerLink="{{a}}" routerLinkActive="active"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color:#b1b3b8">
+                Ourgames</a>
+              <ul class="dropdown-menu" role="menu" style="background-color:#1a274b;">
+                <li><a class="dropdown-item" routerLink="free" routerLinkActive="active" value="free" (click)="onOurgamesupdate('free')">Free</a></li>
+                <li><a class="dropdown-item" routerLink="buy" routerLinkActive="active" value="buy" (click)="onOurgamesupdate('buy')">Buy</a></li>  
+              </ul>
+            </div>
+          </li>
+         
           <!--Top2021-->
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!acheck">
             <a class="nav-link" routerLink="top2021" routerLinkActive="active"  >Top 2021</a>
           </li>
-          </ul>
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-             <!--add-->
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="add" >
-                <i class="fas fa-search mr-1"></i>
-                <span class="ml-1" style="color: #b1b3b8;" routerLinkActive="active"> ADD</span>
-            </a>
+          <!--add-->
+          <li class="nav-item" *ngIf="acheck">
+            <a class="nav-link"  routerLinkActive="active" routerLink="/admin/add">ADD</a>
           </li>
-        <!--Search-->
-          <li class="nav-item">
+          <!--userlist-->
+          <li class="nav-item" *ngIf="acheck">
+            <a class="nav-link"  routerLinkActive="active" routerLink="/admin/userlist">users</a>
+          </li>
+        </ul>
+          <ul class="navbar-nav ms-auto mb-lg-0 m-0 my-sm-0 mt-3 md-0" >
+          <!--addhomepage
+          <li class="nav-item pt-lg-2" >
+            <a class="nav-link"  routerLinkActive="active" routerLink="/admin/userlist">ADD</a>
+          </li> -->
+          <!--Search-->
+          <li class="nav-item pt-lg-2" *ngIf="!acheck">
             <a class="nav-link" routerLinkActive="active" routerLink="search" >
                 <i class="fas fa-search mr-1"></i>
-                <span class="ml-1" style="color: #b1b3b8;" routerLinkActive="active"> Search</span>
+                <span class="ml-1" style="color: #b1b3b8;"> Search</span>
             </a>
           </li>
+          <!--cart-->
+          <li class="nav-item pt-lg-2" *ngIf="false">
+            <a class="nav-link" routerLinkActive="active" routerLink="usercart" >
+              <i class="fas fa-shopping-cart"></i>
+              <span class="ml-1" style="color: #b1b3b8;"> cart</span>
+            </a>
+          </li>
+          <!--user profile-->
+          <li class="nav-item" *ngIf="check" >
+            <div class="btn-group hover_drop_down">
+              <!--<button type="button" class="btn btn-default" data-toggle="dropdown">check</button>-->
+              <a class="nav-link hover_drop_down" id="navbarDropdown" routerLink="{{b}}" routerLinkActive="active"  role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color:#b1b3b8">
+                 <ngx-avatar name="{{username}}" *ngIf="!userObj.profileImage"></ngx-avatar>
+              <span>
+               <ngx-avatar  src="{{userObj.profileImage}}" *ngIf="userObj.profileImage" [round]="true" style="display:inline-flex;" ></ngx-avatar>
+               <span> {{username}}</span>
+              </span>
+             </a>
+              <ul class="dropdown-menu dm" role="menu" style="background-color:#1a274b;" >
+                <li><a class="dropdown-item" routerLink="useraccount" routerLinkActive="active" value="useraccount" (click)="onUsername('usercart')">
+                  <!--<i class="fas fa-user-circle"></i>-->
+                  <i class="fas fa-user"></i>
+                 <span class="ml-1" style="color: #b1b3b8;"> Account</span>
+                </a></li>
+                <li>
+                  <a class="dropdown-item" routerLink="usercart" routerLinkActive="active" value="usercart" (click)="onUsername('usercart')">
+                  <i class="fas fa-shopping-cart"></i>
+                 <span class="ml-1" style="color: #b1b3b8;"> cart<span class="badge bg-info text-white ms-2">{{count}}</span></span>
+                </a>
+              </li>
+                <li><a class="dropdown-item" routerLinkActive="active" value="logout" (click)="onlogOut()"  style="color: #b1b3b8;">
+                  <i class="fas fa-sign-out-alt text-white"></i>Logout</a></li>  
+              </ul>
+            </div>
+          </li>
           <!--login-->
-          <li class="nav-item">
+          <li class="nav-item pt-lg-2" *ngIf="!acheck && !check">
             <a class="nav-link" routerLink="login" routerLinkActive="active" >Log In</a>
+          </li>
+          <!--logout-->
+          <li class="nav-item pt-lg-2" *ngIf="acheck">
+            <a class="nav-link" routerLink="login" routerLinkActive="active" (click)="onlogOut()"  >Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+</div>
 
   <router-outlet></router-outlet>
 

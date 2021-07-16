@@ -1,0 +1,83 @@
+
+
+<div class="px-lg-5 px-sm-1  mx-lg-auto mx-auto my-5 d-block container" style="width: 50%;">
+      <div class="col" style="background-color:#797e87;">
+          <div class="row py-3" style="justify-content: center;align-content: center;">
+              <img src="../assets/logo11.PNG" alt="" style="width:26%;">
+          </div>
+          <div class="row">
+            <h2 class="text-center text-light mt-4">SIGN UP</h2>
+            <form #ref="ngForm" (ngSubmit)="ref.form.valid && onRegister(ref)" class="mx-auto mt-3 register">
+
+                <div class="form-floating px-1">
+                    <select class="form-select" id="country" aria-label="Floating label select example" name="country" ngModel required #refcntry="ngModel">  
+                      <option selected >India</option>
+                      <option *ngFor="let country of countries;let in=index;" value="{{country}}">{{country}}</option>
+                    </select>
+                    <label for="country">Country</label>
+                </div> 
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refcntry.touched)&&refcntry.errors?.required)"></p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refcntry.touched)&&refcntry.errors?.required">
+                  *Please select your country</p>
+
+              <div class="form-floating px-1">
+                  <input type="text" class="form-control" id="un" placeholder="username" name="username" ngModel required #refun="ngModel" autocomplete="off">
+                  <label for="un">Username</label>
+              </div>
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refun.touched)&&refun.errors?.required)"></p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refun.touched)&&refun.errors?.required">
+                  *Username is required</p>
+             <!-- <div class="row mb-3 mx-auto"> -->
+              <div class="col form-floating px-1">
+                  <input type="password" class="form-control" id="pw" placeholder="password" name="password" ngModel required minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" #refpwd="ngModel" autocomplete="off">
+                  <label for="pw"> Password</label>
+              </div>
+
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refpwd.touched)&&refpwd.errors?.required)"></p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refpwd.touched)&&refpwd.errors?.required">
+                  *Password is required</p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refpwd.touched)&&refpwd.errors?.minlength">
+                      *Minlength is 8 </p>
+              <p class="text-white mb-3 px-1" style="text-align: justify;"*ngIf="!((ref.submitted || refpwd.touched)&&refpwd.errors?.minlength)&&((ref.submitted || refpwd.touched)&&refpwd.errors?.pattern)">
+                      *Password should be atleast 8 characters
+                      long and should contain one number,one character and one special
+                      character</p>
+
+              <div class="col form-floating px-1">
+                  <input type="password" class="form-control" id="cpw" placeholder="confirm password" name="cpassword" ngModel required #refcpwd="ngModel">
+                  <label for="cpw"> Confirm Password</label>  
+              </div>
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refcpwd.touched)&&refcpwd.errors?.required)"></p>
+              <p class="text-white mb-3 px-1" *ngIf="(ref.submitted || refcpwd.touched)&&refcpwd.errors?.required">
+                  *Password is required</p>
+              <p class="text-white mb-3 px-1" *ngIf="(!((ref.submitted || refcpwd.touched)&&refcpwd.errors?.required))&&(ref.submitted || refcpwd.touched)&&!(refpwd.value===refcpwd.value)">
+                      *Password not matched</p>
+           <!-- </div>-->
+           
+              <div class="form-floating px-1">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" ngModel required #refemail="ngModel">
+                <label for="email">Email address</label>
+              </div> 
+              <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refemail.touched)&&refemail.errors?.required)"></p>
+              <p class="text-white mb-4 px-1" *ngIf="(ref.submitted || refemail.touched)&&refemail.errors?.required">
+                  *Email is required</p>
+              
+            <div class="px-1">
+              <label  for=""style="color:#efeff0" >Profile photo</label>
+              <input type="file" class="form-control" name="photo" (change)="selectFile($event)" ngModel required #refphoto="ngModel">
+            </div>
+            <p class="text-danger mb-3 px-1" *ngIf="!((ref.submitted || refphoto.touched)&&refphoto.errors?.required)"></p>
+              <p class="text-white mb-4 px-1" *ngIf="(ref.submitted || refphoto.touched)&&refphoto.errors?.required">
+                  *Profile photo is required</p>
+
+                  <div class="parent text-center" style="color: rgba(252, 34, 34, 0.938);">
+
+                  </div>
+
+             <button class="mt-5 btn mx-auto d-block m-4 registerbtn" style="background-color:#d8d9db;" type="submit">CONTINUE</button>
+              <p class="text-center">Already a Member?<a class="sample" [routerLink]="['/login']" style="color: black;">Log In</a></p>
+            </form>
+            
+          </div>
+      </div>
+</div>

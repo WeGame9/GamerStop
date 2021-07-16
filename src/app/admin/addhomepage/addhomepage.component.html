@@ -1,0 +1,52 @@
+
+
+<div class="m-2 mx-4" style="border: 1px solid white;"> 
+    <h1 class="text-center text-white mx-auto d-block">For adding special offer items</h1>
+    <form #ref="ngForm" (ngSubmit)="onadd(ref.value)" class="w-75 mx-auto mt-5">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="id" placeholder="id" name="id"
+                ngModel>
+            <label for="id">Id</label>
+        </div>
+        <button class="btn btn-success" type="submit">Special offers</button>
+    </form>
+    </div>
+    
+    
+    <div class="m-2 mx-4" style="border: 1px solid white;"> 
+        <h1 class="text-center text-white mx-auto d-block">For adding Recently added items</h1>
+        <form #ref1="ngForm" (ngSubmit)="onaddRar(ref1.value)" class="w-75 mx-auto mt-5">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="id" placeholder="id" name="id"
+                    ngModel>
+                <label for="id">Id</label>
+            </div>
+            <button class="btn btn-success" type="submit">Recently added</button>
+        </form>
+    </div>
+    
+    
+    
+    <div class="m-2 mx-4" style="border: 1px solid white;"> 
+        <h1 class="text-center text-white mx-auto d-block">For adding Featured games</h1>
+        <form #ref2="ngForm" (ngSubmit)="onaddFg(ref2.value)" class="w-75 mx-auto mt-5">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="id" placeholder="id" name="id"
+                    ngModel>
+                <label for="id">Id</label>
+            </div>
+            <button class="btn btn-success" type="submit">Recently added</button>
+        </form>
+    </div>
+    
+    <div class="m-2 mx-4" style="border: 1px solid white;"> 
+        <h1 class="text-center text-white mx-auto d-block">For adding Recommended games</h1>
+        <form #ref3="ngForm" (ngSubmit)="onaddRe(ref3.value)" class="w-75 mx-auto mt-5">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="id" placeholder="id" name="id"
+                    ngModel>
+                <label for="id">Id</label>
+            </div>
+            <button class="btn btn-success" type="submit">Recently added</button>
+        </form>
+    </div>

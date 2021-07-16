@@ -1,0 +1,32 @@
+input{
+    background-color:#464f65;
+    border-radius: 3px;
+    border:none;
+    color:#c8c9cd;
+    height: 50px;
+    font-size: 1.2em;
+}
+.span
+{
+    height: 50px;
+}
+.input1{
+    width:94%; 
+    display: inline;
+}
+.form-control{
+  transition: none;
+}
+@media screen and (max-width: 760px) {
+    .input1{
+      width: 84%;
+      display: inline;
+    }
+    input{
+        font-size: 1.2em;
+    }
+   .span {
+       height: 40px;
+    }
+
+}
